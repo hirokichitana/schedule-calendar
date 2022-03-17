@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+<div class="show">
+<p>
+  <strong>タイトル</strong>
+  <%= @schedule.title %>
+</p>
+
+<p>
+  <strong>内容</strong>
+  <%= @schedule.content %>
+</p>
+
+<p>
+  <strong>日時</strong>
+  <%= @schedule.start_time.strftime("%m-%d") %>
+</p>

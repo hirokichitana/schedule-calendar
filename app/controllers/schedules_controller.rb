@@ -14,7 +14,7 @@ class SchedulesController < ApplicationController
   end
 
   def show
-    @schedule = schedule.find(params[:id])
+    @schedule = Schedule.find(params[:id])
   end
 
   private
