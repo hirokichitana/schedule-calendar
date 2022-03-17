@@ -5,7 +5,7 @@
 
   <% schedules.each do |schedule| %>
     <div>
-      <%= schedule.title %>
+      <%= link_to schedule.title, schedule_path(schedule.id), method: :get %>
     </div>
   <% end %>
 <% end %>
