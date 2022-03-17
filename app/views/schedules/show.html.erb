@@ -1,15 +1,20 @@
+<p id="notice"><%= notice %></p>
+
 <div class="show">
-<p>
-  <strong>タイトル</strong>
-  <%= @schedule.title %>
-</p>
+  <p>
+    <strong>タイトル</strong>
+    <%= @schedule.title %>
+  </p>
 
-<p>
-  <strong>内容</strong>
-  <%= @schedule.content %>
-</p>
+  <p>
+    <strong>内容</strong>
+    <%= @schedule.content %>
+  </p>
 
-<p>
-  <strong>日時</strong>
-  <%= @schedule.start_time.strftime("%m-%d") %>
-</p>
+  <p>
+    <strong>日時</strong>
+    <%= @schedule.start_time.strftime("%m-%d") %>
+  </p>
+
+  <%= link_to '消去',schedule_path(@schedule.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+
