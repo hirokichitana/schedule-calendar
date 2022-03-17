@@ -13,6 +13,10 @@ class SchedulesController < ApplicationController
     redirect_to root_path
   end
 
+  def show
+    @schedule = schedule.find(params[:id])
+  end
+
   private
 
   def schedule_parameter
