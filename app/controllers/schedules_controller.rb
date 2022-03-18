@@ -23,6 +23,20 @@ class SchedulesController < ApplicationController
     redirect_to root_path, notice:"削除しました"
   end
 
+  def edit
+    @schedule = Schedule.find(params[:id])
+  end
+
+  def update
+    @schedule = Schedule.find(params[:id])
+    if @schedule.update(schedule_parameter)
+      redirect_to root_path, notice: "編集しました"
+    else
+      render 'edit'
+    end
+  end
+
+
   private
 
   def schedule_parameter
