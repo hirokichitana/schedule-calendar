@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2022_03_16_045022) do
     t.string "title"
     t.text "content"
     t.datetime "start_time"
+    t.datetime "end_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

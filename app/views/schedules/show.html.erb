@@ -12,8 +12,10 @@
   </p>
 
   <p>
-    <strong>日時</strong>
-    <%= @schedule.start_time.strftime("%m-%d") %>
+    <strong>開始日時</strong>
+    <%= @schedule.start_time %>
+    <strong>終了日時</strong>
+    <%= @schedule.end_time %>
   </p>
 
   <%= link_to '編集', edit_schedule_path(@schedule.id) %>
