@@ -13,9 +13,9 @@
 
   <p>
     <strong>開始日時</strong>
-    <%= @schedule.start_time %>
+    <td><%= l @schedule.start_time %></td>
     <strong>終了日時</strong>
-    <%= @schedule.end_time %>
+    <td><%= l @schedule.end_time %></td>
   </p>
 
   <%= link_to '編集', edit_schedule_path(@schedule.id) %>
