@@ -1,4 +1,5 @@
 class SchedulesController < ApplicationController
+  before_action :move_to_index, except: [:index, :show]
   
   def index
     @schedules = Schedule.all
@@ -40,6 +41,13 @@ class SchedulesController < ApplicationController
   private
 
   def schedule_parameter
-    params.require(:schedule).permit(:title, :content, :start_time, :end_time )
+    params.require(:schedule).permit(:title, :content, :start_time, :end_time ).merge(user_id: current_user.id)
   end
+
+  def move_to_index
+    unless user_signed_in?
+      redirect_to action: :index
+    end
+  end
+
 end

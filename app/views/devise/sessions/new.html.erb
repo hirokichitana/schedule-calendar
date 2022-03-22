@@ -1,0 +1,39 @@
+<h1>ログイン</h1>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class='form-wrap'>
+    <div class='form-header'>
+      <h2 class='form-header-text'>
+        ユーザー情報入力
+      </h2>
+    </div>
+    <div class='login-flash-message'>
+      <%= flash[:notice] %>
+      <%= flash[:alert] %>
+    </div>
+
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">メールアドレス</label>
+      </div>
+      <div class="field">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">パスワード</label>
+      </div>
+      <div class="field">
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
+    </div>
+
+    <div class="login-btn">
+      <%= f.submit "ログイン" ,class:"login-red-btn" %>
+    </div>
+  </div>  
+<% end %>
+
+<%= link_to "戻る", :back %>
