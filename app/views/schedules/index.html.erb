@@ -5,8 +5,11 @@
   <%= date.day %>
 
   <% schedules.each do |schedule| %>
-    <div>
+    <li>
       <%= link_to schedule.title, schedule_path(schedule.id), method: :get %>
-    </div>
+      <div>
+        (<%= link_to schedule.user.name, schedule_path(schedule.id), method: :get %>)
+      </div>
+    </li>
   <% end %>
 <% end %>

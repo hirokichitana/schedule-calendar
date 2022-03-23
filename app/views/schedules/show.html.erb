@@ -6,6 +6,11 @@
     <%= @schedule.title %>
   </p>
 
+    <p>
+    <strong>投稿者</strong>
+    <%= @schedule.user.name %>
+  </p>
+
   <p>
     <strong>内容</strong>
     <%= @schedule.content %>
@@ -18,7 +23,9 @@
     <td><%= l @schedule.end_time %></td>
   </p>
 
+<% if user_signed_in? && current_user.id == @schedule.user_id %>
   <%= link_to '編集', edit_schedule_path(@schedule.id) %>
   <%= link_to '消去',schedule_path(@schedule.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+<% end %>
 
 <%= link_to "戻る", :back %>
