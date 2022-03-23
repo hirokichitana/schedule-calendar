@@ -1,5 +1,6 @@
 class SchedulesController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
+  before_action :contributor_confirmation, only: [:edit, :destroy]
   
   def index
     @schedules = Schedule.all
@@ -48,6 +49,11 @@ class SchedulesController < ApplicationController
     unless user_signed_in?
       redirect_to action: :index
     end
+  end
+
+  def contributor_confirmation
+    schedule = Schedule.find(params[:id])
+    redirect_to root_path unless current_user == schedule.user
   end
 
 end
