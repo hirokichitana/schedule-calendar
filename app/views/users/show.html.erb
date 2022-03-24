@@ -1,0 +1,60 @@
+<div class="contents row">
+  <h3><%= @name %>さんのマイページ</h3>
+  <% @user.each do |user| %>
+
+   <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">名前</label>
+      </div>
+      <%= user.name %>
+    </div>
+
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">メールアドレス</label>
+      </div>
+      <%= user.email %>
+    </div>
+
+    <%# <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">生年月日</label>
+      </div>
+      <div class='input-birth-wrap'>
+      <%= @user.birth_date %>
+        <%# <%= raw sprintf(
+                    f.date_select(
+                      :birth_date,
+                      class:'select-birth',
+                      id:"birth-date",
+                      use_month_numbers: true,
+                      prompt:'--',
+                      start_year: 1930,
+                      end_year: (Time.now.year - 5),
+                      date_separator: '%s'),
+                    "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+      <%# </div>
+    </div> %>
+
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">役職</label>
+      </div>
+      <%= user.position %>
+    </div>
+
+  <% end %>
+
+  <%= month_calendar events: @schedules do |date, schedules| %>
+    <%= date.day %>
+
+    <% schedules.each do |schedule| %>
+      <li>
+        <%= link_to schedule.title, schedule_path(schedule.id), method: :get %>
+        <div>
+          (<%= link_to schedule.user.name, schedule_path(schedule.id), method: :get %>)
+        </div>
+      </li>
+    <% end %>
+  <% end %>
+</div>
