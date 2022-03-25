@@ -4,4 +4,5 @@ class UsersController < ApplicationController
     @schedules = Schedule.where(id: current_user.schedules)
     @user = User.where(id: params[:id])
   end
+
 end
