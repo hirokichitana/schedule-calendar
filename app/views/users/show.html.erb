@@ -1,9 +1,11 @@
 <div class="contents row">
-  <h3><%= @name %>さんのマイページ</h3>
+  
 
-  <%= link_to "ユーザー情報変更", edit_user_registration_path, class: "post" %>
+  
 
   <% @user.each do |user| %>
+
+    <h3><%= user.name %>さんのマイページ</h3>
 
    <div class="form-group">
       <div class='form-text-wrap'>
@@ -12,12 +14,14 @@
       <%= user.name %>
     </div>
 
-    <div class="form-group">
-      <div class='form-text-wrap'>
-        <label class="form-text">メールアドレス</label>
+    <% if user_signed_in? && current_user.id == user.id %>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">メールアドレス</label>
+        </div>
+        <%= user.email %>
       </div>
-      <%= user.email %>
-    </div>
+    <% end %>
 
     <div class="form-group">
       <div class='form-text-wrap'>
@@ -35,6 +39,12 @@
       <%= user.position %>
     </div>
 
+  
+
+    <% if user_signed_in? && current_user.id == user.id %>
+      <%= link_to "ユーザー情報変更", edit_user_registration_path, class: "post" %>
+    <% end %>
+
   <% end %>
 
   <%= month_calendar events: @schedules do |date, schedules| %>
@@ -42,11 +52,13 @@
 
     <% schedules.each do |schedule| %>
       <li>
-        <%= link_to schedule.title, schedule_path(schedule.id), method: :get %>
+        <%= link_to schedule.title, schedule_path(schedule.user.id), method: :get %>
         <div>
-          (<%= link_to schedule.user.name, schedule_path(schedule.id), method: :get %>)
+          (<%= link_to schedule.user.name, user_path(schedule.user.id), method: :get %>)
         </div>
       </li>
     <% end %>
   <% end %>
+
+  
 </div>
