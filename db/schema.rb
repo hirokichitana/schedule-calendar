@@ -13,10 +13,10 @@
 ActiveRecord::Schema.define(version: 2022_03_22_143018) do
 
   create_table "schedules", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "title"
-    t.text "content"
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.string "title", null: false
+    t.text "content", null: false
+    t.datetime "start_time", null: false
+    t.datetime "end_time", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2022_03_22_143018) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.date "birth_date", null: false
+    t.string "department"
     t.string "position"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
