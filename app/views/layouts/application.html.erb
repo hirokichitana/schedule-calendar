@@ -10,6 +10,7 @@
   </head>
 
   <body>
+   <%= breadcrumbs separator: " &rsaquo; " %>
    <header class="header">
       <div class="header__bar row">
         <h1 class="grid-6"><a href="/">ScheduleCalendar</a></h1>
@@ -28,6 +29,7 @@
         <% end %>
       </div>
     </header>
+   
     <%= yield %>
     <footer>
       
