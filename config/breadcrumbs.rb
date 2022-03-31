@@ -2,6 +2,33 @@ crumb :root do
   link "Home", root_path
 end
 
+crumb :schedules_edit do
+  link "スケジュールの編集", edit_schedule_path
+end
+
+crumb :schedules_new do
+  link "新規スケジュール", new_schedule_path
+end
+
+crumb :schedules_show do
+  link "スケジュールの確認", schedule_path
+end
+
+crumb :registrations_edit do
+  link "ユーザー情報の編集", edit_user_registration_path
+end
+
+crumb :registrations_new do
+  link "新規ユーザー登録", new_user_registration_path
+end
+
+crumb :sessions_new do
+  link "ログイン", new_user_session_path
+end
+
+crumb :users_show do
+  link "ユーザー情報の確認", user_path
+end
 
 
 # crumb :projects do
