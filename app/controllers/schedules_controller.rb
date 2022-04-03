@@ -17,6 +17,8 @@ class SchedulesController < ApplicationController
 
   def show
     @schedule = Schedule.find(params[:id])
+    @comment = Comment.new
+    @comments = @schedule.comments.includes(:user)
   end
 
   def destroy
