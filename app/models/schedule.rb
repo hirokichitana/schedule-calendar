@@ -1,5 +1,4 @@
 class Schedule < ApplicationRecord
-  
 
   validates :title, presence: true
   validates :content, presence: true
@@ -7,5 +6,6 @@ class Schedule < ApplicationRecord
   validates :end_time, presence: true
 
   belongs_to :user
-  
+  has_many :comments
+
 end
