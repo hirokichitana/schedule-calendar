@@ -25,10 +25,11 @@ ActiveRecord::Schema.define(version: 2022_04_03_113144) do
     t.text "content", null: false
     t.datetime "start_time", null: false
     t.datetime "end_time", null: false
-    t.string "prefecture", null: false
-    t.string "city", null: false
-    t.string "town", null: false
-    t.string "building_name"
+    t.text "zip_code"
+    t.text "prefecture"
+    t.text "city"
+    t.text "town"
+    t.text "building_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
