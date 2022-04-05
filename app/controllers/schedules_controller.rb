@@ -44,7 +44,7 @@ class SchedulesController < ApplicationController
   private
 
   def schedule_parameter
-    params.require(:schedule).permit(:title, :content, :start_time, :end_time, :prefecture, :city, :town, :building_name ).merge(user_id: current_user.id)
+    params.require(:schedule).permit(:title, :content, :start_time, :end_time, :zip_code, :prefecture, :city, :town, :building_name ).merge(user_id: current_user.id)
   end
 
   def move_to_index
