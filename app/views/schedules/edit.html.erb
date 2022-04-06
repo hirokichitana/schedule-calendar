@@ -5,22 +5,22 @@
 <%= form_with model: @schedule, local: true do |form| %>
 
   <div class="title">
-    <%= form.label :title %>
+    <%= form.label :タイトル %>
     <%= form.text_field :title %>
   </div>
 
   <div class="time">
-    <%= form.label :start_time %>
+    <%= form.label :開始時間 %>
     <%= form.datetime_select :start_time %>
   </div>
 
   <div class="time">
-    <%= form.label :end_time %>
+    <%= form.label :終了時間 %>
     <%= form.datetime_select :end_time %>
   </div>
 
   <div class="content">
-    <%= form.label :content %>
+    <%= form.label :内容 %>
     <%= form.text_field :content %>
   </div>
 
@@ -28,27 +28,27 @@
       <span class="p-country-name" style="display:none;">Japan</span>
 
       <div class="zip_code">
-        <%= form.label :zip_code %>
+        <%= form.label :郵便番号 %>
         <%= form.text_field :zip_code, placeholder:"郵便番号を入力してください", class:"p-postal-code form-control" %>
       </div>
 
       <div class="prefecture">
-          <%= form.label :prefecture %>
+          <%= form.label :都道府県 %>
           <%= form.text_field :prefecture, class:"p-region form-control" %>
       </div>
 
       <div class="city">
-        <%= form.label :city %>
+        <%= form.label :市区町村 %>
         <%= form.text_field :city, class:"p-locality form-control" %>
       </div>
 
       <div class="town">
-        <%= form.label :town %>
+        <%= form.label :域・番地 %>
         <%= form.text_field :town, class:"p-street-address form-control" %>
       </div>
 
       <div class="building_name">
-              <%= form.label :building_name %>
+              <%= form.label :その他住所 %>
               <%= form.text_field :building_name, class:"p-extended-address form-control" %>
       </div>
     </div>
