@@ -1,8 +1,8 @@
 <% breadcrumb :schedules_edit %>
 
-<h1>新規予定</h1>
+<h1>予定の編集</h1>
 
-<%= form_with(model: @schedule, local: true) do |form| %>
+<%= form_with model: @schedule, local: true do |form| %>
 
   <div class="title">
     <%= form.label :title %>
@@ -23,6 +23,35 @@
     <%= form.label :content %>
     <%= form.text_field :content %>
   </div>
+
+    <div class="h-adr" >
+      <span class="p-country-name" style="display:none;">Japan</span>
+
+      <div class="zip_code">
+        <%= form.label :zip_code %>
+        <%= form.text_field :zip_code, placeholder:"郵便番号を入力してください", class:"p-postal-code form-control" %>
+      </div>
+
+      <div class="prefecture">
+          <%= form.label :prefecture %>
+          <%= form.text_field :prefecture, class:"p-region form-control" %>
+      </div>
+
+      <div class="city">
+        <%= form.label :city %>
+        <%= form.text_field :city, class:"p-locality form-control" %>
+      </div>
+
+      <div class="town">
+        <%= form.label :town %>
+        <%= form.text_field :town, class:"p-street-address form-control" %>
+      </div>
+
+      <div class="building_name">
+              <%= form.label :building_name %>
+              <%= form.text_field :building_name, class:"p-extended-address form-control" %>
+      </div>
+    </div>
 
   <div class="submit">
     <%= form.submit %>

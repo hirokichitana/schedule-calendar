@@ -21,9 +21,27 @@
   <p>
     <strong>開始日時</strong>
     <td><%= l @schedule.start_time %></td>
+  </p>
+  <p>
     <strong>終了日時</strong>
     <td><%= l @schedule.end_time %></td>
   </p>
+
+  <div class="address" >
+    <strong>住所</strong>
+      <p>
+        <%= @schedule.zip_code %>
+      </p>
+
+    <p>
+      <%= @schedule.prefecture %>
+      <%= @schedule.city %>
+      <%= @schedule.town %>
+      <%= @schedule.building_name %>
+    </p>
+  </div>
+
+
 
   <% if user_signed_in? && current_user.id == @schedule.user_id %>
     <%= link_to '編集', edit_schedule_path(@schedule.id) %>
