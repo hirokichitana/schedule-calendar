@@ -1,15 +1,18 @@
 <% breadcrumb :users_show %>
 
 <div class="contents row">
-  
-
-  
 
   <% @user.each do |user| %>
 
     <h3><%= user.name %>さんのマイページ</h3>
 
-   <div class="form-group">
+    <% unless user_signed_in? && current_user.id == user.id %>
+      <div class="mail-link">
+        <%= mail_to user.email, "#{user.name}さんへメールを送る" %>
+      </div>
+    <% end %>
+
+    <div class="form-group">
       <div class='form-text-wrap'>
         <label class="form-text">名前</label>
       </div>
@@ -69,5 +72,4 @@
     <% end %>
   <% end %>
 
-  
 </div>
