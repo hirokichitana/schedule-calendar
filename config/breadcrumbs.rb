@@ -13,7 +13,7 @@ crumb :schedules_new do
 end
 
 crumb :schedules_show do
-  link "スケジュールの詳細", schedule_path(current_user.id)
+  link "スケジュールの詳細", schedule_path
   parent :root
 end
 
