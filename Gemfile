@@ -64,3 +64,5 @@ gem 'gretel'
 gem 'rspec-rails', '~> 4.0.0'
 
 gem 'pry-rails'
+
+gem 'factory_bot_rails'
