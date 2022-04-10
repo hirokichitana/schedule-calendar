@@ -60,3 +60,7 @@ gem 'i18n_generators'
 gem 'devise'
 
 gem 'gretel'
+
+gem 'rspec-rails', '~> 4.0.0'
+
+gem 'pry-rails'
