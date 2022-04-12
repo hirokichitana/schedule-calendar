@@ -4,6 +4,22 @@
 
 <%= form_with model: @schedule, local: true do |form| %>
 
+  <% if @schedule.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= I18n.t("errors.messages.not_saved",
+                  count: @schedule.errors.count,
+                  resource: @schedule.class.model_name.human.downcase)
+        %>
+      </h2>
+      <ul>
+        <% @schedule.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="title">
     <%= form.label :タイトル %>
     <%= form.text_field :title %>
