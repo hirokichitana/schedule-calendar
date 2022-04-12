@@ -7,7 +7,7 @@ FactoryBot.define do
     content           { Faker::Lorem.sentence }
     start_time        { Faker::Time.between(from: DateTime.now - 1, to: DateTime.now) }
     end_time          { Faker::Time.between(from: DateTime.now - 1, to: DateTime.now) }
-    zip_code          { Faker::Address.zip_code }
+    zip_code          { Faker::Number.number(digits: 7) }
     prefecture        { Faker::Address.state }
     city              { Faker::Address.city }
     town              { Faker::Address.street_address }
