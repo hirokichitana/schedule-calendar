@@ -5,6 +5,12 @@ ja:
       user:
         name: 名前
         birth_date: 生年月日
+      schedule:
+        title: タイトル
+        content: 内容
+        start_time: 開始時間
+        end_time: 終了時間
+        zip_code: 郵便番号
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
