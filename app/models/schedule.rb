@@ -4,7 +4,8 @@ class Schedule < ApplicationRecord
   validates :content, presence: true
   validates :start_time, presence: true
   validates :end_time, presence: true
-  validates :zip_code, format: { with: /\A\d{7}\z/ }
+
+  validates :zip_code, format: { with: /\A\d{0,7}\z/ }
 
 
   belongs_to :user
