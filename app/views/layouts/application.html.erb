@@ -17,7 +17,7 @@
         <h1 class="grid-6"><a href="/">ScheduleCalendar</a></h1>
         <% if user_signed_in? %>
           <div class="user_nav grid-6">
-          <h3>こんにちは<%= link_to current_user.name, root_path, class: "user-name" %>さん</h3>
+          <h3>こんにちは<%= link_to current_user.name, user_path(current_user.id), class: "user-name" %>さん</h3>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
           <%= link_to "マイページ", user_path(current_user.id) %>
           <%= link_to "新規予定", new_schedule_path, class: "post" %>
