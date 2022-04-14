@@ -63,7 +63,9 @@
         <p>
           <strong><%= link_to comment.user.name, "/users/#{comment.user_id}" %>：</strong>
           <%= comment.text %>
-          <%=link_to "削除", schedule_comment_path(comment.schedule.id, comment.id), method: :delete %>
+          <% if user_signed_in? %>
+            <%=link_to "削除", schedule_comment_path(comment.schedule.id, comment.id), method: :delete %>
+          <% end %>
         </p>
       <% end %>
     </div>
