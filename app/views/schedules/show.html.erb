@@ -45,7 +45,6 @@
 
   <% if user_signed_in? && current_user.id == @schedule.user_id %>
     <%= link_to '編集', edit_schedule_path(@schedule.id) %>
-    <%= link_to '消去',schedule_path(@schedule.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
   <% end %>
 
   <div class="container">
@@ -63,7 +62,9 @@
         <p>
           <strong><%= link_to comment.user.name, "/users/#{comment.user_id}" %>：</strong>
           <%= comment.text %>
-          <%=link_to "削除", schedule_comment_path(comment.schedule.id, comment.id), method: :delete %>
+          <% if user_signed_in? && current_user.id == comment.user_id%>
+            <%=link_to "削除", schedule_comment_path(comment.schedule.id, comment.id), method: :delete %>
+          <% end %>
         </p>
       <% end %>
     </div>
