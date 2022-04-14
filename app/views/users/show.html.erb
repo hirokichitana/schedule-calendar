@@ -54,7 +54,7 @@
   
 
     <% if user_signed_in? && current_user.id == user.id %>
-      <%= link_to "ユーザー情報変更", edit_user_registration_path, class: "post" %>
+      <%= link_to "ユーザー情報変更", edit_user_registration_path(user.id), class: "post" %>
     <% end %>
 
   <% end %>
