@@ -1,3 +1,12 @@
+# アプリケーション名
+Schedule Calendar
+
+# アプリケーション概要
+社内等で互いの予定を共有し、コミュニケーションを取る事により、部下の管理やサポート、商談等のアドバイスやフィードバックに役立てる事ができる。
+
+# URL
+https://schedule-calendar-0630.herokuapp.com/
+
 ## users テーブル
 
 | Column             | Type    | Options                   |
