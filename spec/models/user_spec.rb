@@ -7,7 +7,7 @@ RSpec.describe User, type: :model do
 
   describe 'ユーザー新規登録' do
     context '新規登録できるとき' do
-      it 'nameとemail、password、password_confirmation、birth_dateが存在すれば登録できる' do
+      it 'nameとtelephone_number、email、password、password_confirmation、birth_dateが存在すれば登録できる' do
         expect(@user).to be_valid
       end
     end
@@ -16,6 +16,31 @@ RSpec.describe User, type: :model do
         @user.name = ''
         @user.valid?
         expect(@user.errors.full_messages).to include("名前を入力してください")
+      end
+      it 'telephone_numberが空だと保存できないこと' do
+        @user.telephone_number = ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include('電話番号を入力してください')
+      end
+      it 'telephone_numberが9桁以下だと保存できないこと' do
+        @user.telephone_number = '123456789'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('電話番号は不正な値です')
+      end
+      it 'telephone_numberが12桁以上だと保存できないこと' do
+        @user.telephone_number = '123456789012'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('電話番号は不正な値です')
+      end
+      it 'telephone_numberが全角数字だと保存できないこと' do
+        @user.telephone_number = '０９０１２３４５６７８'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('電話番号は不正な値です')
+      end
+      it 'telephone_numberはハイフンを含んでいると保存できないこと' do
+        @user.telephone_number = '090-1234-5678'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('電話番号は不正な値です')
       end
       it 'emailが空では登録できない' do
         @user.email = ''

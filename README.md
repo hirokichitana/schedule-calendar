@@ -32,7 +32,7 @@ https://schedule-calendar-0630.herokuapp.com/
 https://docs.google.com/spreadsheets/d/14h1gLXpCPO-xmKwL0UVXvfZG6t1lBy-Vk1XmyuFk2cA/edit?usp=sharing
 
 # データベース設計
-<img width="759" alt="スクリーンショット 2022-04-15 23 42 26" src="https://user-images.githubusercontent.com/94688508/163584596-dfe08039-cb5d-49c4-b1f2-394fe7773feb.png">
+<img width="759" alt="スクリーンショット 2022-04-17 0 53 10" src="https://user-images.githubusercontent.com/94688508/163681912-4613bca3-f6fd-498b-b495-a3a8c78ac276.png">
 
 
 ## users テーブル
