@@ -14,6 +14,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :telephone_number %><br />
+    <%= f.text_area :telephone_number, autofocus: true, autocomplete: "電話番号" %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
