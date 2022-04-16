@@ -1,9 +1,11 @@
 class Schedule < ApplicationRecord
 
-  validates :title, presence: true
-  validates :content, presence: true
-  validates :start_time, presence: true
-  validates :end_time, presence: true
+  with_options presence: true do
+    validates :title
+    validates :content
+    validates :start_time
+    validates :end_time
+  end
 
   validates :zip_code, format: { with: /\A\d{0,7}\z/ }
 
