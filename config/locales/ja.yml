@@ -5,6 +5,7 @@ ja:
       user:
         name: 名前
         birth_date: 生年月日
+        telephone_number: 電話番号
       schedule:
         title: タイトル
         content: 内容
