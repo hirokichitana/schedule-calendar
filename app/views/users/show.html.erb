@@ -4,7 +4,7 @@
 
   <% @user.each do |user| %>
 
-    <h3><%= user.name %>さんのマイページ</h3>
+    <h5><%= user.name %>さんのマイページ</h5>
 
     <% unless user_signed_in? && current_user.id == user.id %>
       <div class="mail-link">
@@ -12,53 +12,34 @@
       </div>
     <% end %>
 
-    <div class="form-group">
-      <div class='form-text-wrap'>
-        <label class="form-text">名前</label>
-      </div>
-      <%= user.name %>
-    </div>
-
-    <div class="form-group">
-      <div class='form-text-wrap'>
-        <label class="form-text">電話番号</label>
-      </div>
-      <%= user.telephone_number %>
-    </div>
-
-    <% if user_signed_in? && current_user.id == user.id %>
-      <div class="form-group">
-        <div class='form-text-wrap'>
-          <label class="form-text">メールアドレス</label>
-        </div>
-        <%= user.email %>
-      </div>
-    <% end %>
-
-    <div class="form-group">
-      <div class='form-text-wrap'>
-        <label class="form-text">生年月日</label>
-      </div>
-      <div class='input-birth-wrap'>
-        <%= user.birth_date %>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <div class='form-text-wrap'>
-        <label class="form-text">所属部署</label>
-      </div>
-      <%= user.department %>
-    </div>
-
-    <div class="form-group">
-      <div class='form-text-wrap'>
-        <label class="form-text">役職</label>
-      </div>
-      <%= user.position %>
-    </div>
-
-  
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">名前</th>
+          <td class="detail-value"><%= user.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">電話番号</th>
+          <td class="detail-value"><%= user.telephone_number %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">メールアドレス</th>
+          <td class="detail-value"><%= user.email %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">誕生日</th>
+          <td class="detail-value"><%= user.birth_date %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">所属部署</th>
+          <td class="detail-value"><%= user.department %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">役職</th>
+          <td class="detail-value"><%= user.position %></td>
+        </tr>
+      </tbody>
+    </table>
 
     <% if user_signed_in? && current_user.id == user.id %>
       <%= link_to "ユーザー情報変更", edit_user_registration_path, class: "post" %>

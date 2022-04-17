@@ -3,43 +3,46 @@
 <p id="notice"><%= notice %></p>
 
 <div class="show">
-  <p>
-    <strong>タイトル</strong>
-    <%= @schedule.title %>
-  </p>
 
-    <p>
-    <strong>投稿者</strong>
-    <%= @schedule.user.name %>
-  </p>
 
-  <p>
-    <strong>内容</strong>
-    <%= @schedule.content %>
-  </p>
 
-  <p>
-    <strong>開始日時</strong>
-    <td><%= l @schedule.start_time %></td>
-  </p>
-  <p>
-    <strong>終了日時</strong>
-    <td><%= l @schedule.end_time %></td>
-  </p>
 
-  <div class="address" >
-    <strong>住所</strong>
-      <p>
-        <%= @schedule.zip_code %>
-      </p>
 
-    <p>
-      <%= @schedule.prefecture %>
-      <%= @schedule.city %>
-      <%= @schedule.town %>
-      <%= @schedule.building_name %>
-    </p>
-  </div>
+  <table class="detail-table">
+    <tbody>
+      <tr>
+        <th class="detail-item">タイトル</th>
+        <td class="detail-value"><%= @schedule.title %></td>
+      </tr>
+      <tr>
+        <th class="detail-item">投稿者</th>
+        <td class="detail-value"><%= @schedule.user.name %></td>
+      </tr>
+      <tr>
+        <th class="detail-item">詳細</th>
+        <td class="detail-value"><%= @schedule.content %></td>
+      </tr>
+      <tr>
+        <th class="detail-item">開始時間</th>
+        <td class="detail-value"><%= l @schedule.start_time %></td>
+      </tr>
+      <tr>
+        <th class="detail-item">終了時間</th>
+        <td class="detail-value"><%= l @schedule.end_time %></td>
+      </tr>
+      <tr>
+        <th class="detail-item">住所</th>
+        <td class="detail-value"><%= @schedule.zip_code %>
+          <p>
+            <%= @schedule.prefecture %><%= @schedule.city %><%= @schedule.town %><%= @schedule.building_name %>
+          </p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
 
 
 

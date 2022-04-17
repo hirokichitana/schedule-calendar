@@ -20,50 +20,50 @@
     </div>
   <% end %>
 
-  <div class="title">
-    <%= form.label :タイトル %>
-    <%= form.text_field :title %>
-  </div>
+  <form class="row g-3">
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">タイトル（必須）</label>
+      <%= form.text_field :title, class: "form-control", id: "inputEmail4" %>
+    </div>
+    
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">開始日時（必須）</label>
+      <%= form.datetime_field :start_time, class: "form-control", id: "inputEmail4" %>
+    </div>
 
-  <div class="time">
-    <%= form.label :開始時間 %>
-    <%= form.datetime_select :start_time %>
-  </div>
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">終了日時（必須）</label>
+      <%= form.datetime_field :end_time, class: "form-control", id: "inputEmail4" %>
+    </div>
 
-  <div class="time">
-    <%= form.label :終了時間 %>
-    <%= form.datetime_select :end_time %>
-  </div>
-
-  <div class="content">
-    <%= form.label :内容 %>
-    <%= form.text_field :content %>
-  </div>
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">詳細（必須）</label>
+      <%= form.text_field :content, class: "form-control items-text", id: "inputEmail4" %>
+    </div>
 
     <div class="h-adr" >
       <span class="p-country-name" style="display:none;">Japan</span>
-
-      <div class="zip_code">
+      <div class="zip_code col-md-6">
         <%= form.label :郵便番号 %>
         <%= form.text_field :zip_code, placeholder:"郵便番号を入力してください", class:"p-postal-code form-control" %>
       </div>
 
-      <div class="prefecture">
+      <div class="prefecture, col-md-6">
           <%= form.label :都道府県 %>
           <%= form.text_field :prefecture, class:"p-region form-control" %>
       </div>
 
-      <div class="city">
+      <div class="city, col-md-6">
         <%= form.label :市区町村 %>
         <%= form.text_field :city, class:"p-locality form-control" %>
       </div>
 
-      <div class="town">
-        <%= form.label :域・番地 %>
+      <div class="town, col-md-6">
+        <%= form.label :町域・番地 %>
         <%= form.text_field :town, class:"p-street-address form-control" %>
       </div>
 
-      <div class="building_name">
+      <div class="building_name, col-md-6">
               <%= form.label :その他住所 %>
               <%= form.text_field :building_name, class:"p-extended-address form-control" %>
       </div>
