@@ -32,7 +32,7 @@ https://schedule-calendar-0630.herokuapp.com/
 https://docs.google.com/spreadsheets/d/14h1gLXpCPO-xmKwL0UVXvfZG6t1lBy-Vk1XmyuFk2cA/edit?usp=sharing
 
 # データベース設計
-<img width="759" alt="スクリーンショット 2022-04-17 0 53 10" src="https://user-images.githubusercontent.com/94688508/163681912-4613bca3-f6fd-498b-b495-a3a8c78ac276.png">
+<img width="757" alt="スクリーンショット 2022-04-17 1 33 15" src="https://user-images.githubusercontent.com/94688508/163683505-179436f5-0f27-4a8a-b26b-a3a8c147d680.png">
 
 
 ## users テーブル
@@ -84,3 +84,21 @@ https://docs.google.com/spreadsheets/d/14h1gLXpCPO-xmKwL0UVXvfZG6t1lBy-Vk1XmyuFk
 
   belongs_to :schedule  
   belongs_to :user
+
+# 画面遷移図
+<img width="852" alt="スクリーンショット 2022-04-17 1 30 32" src="https://user-images.githubusercontent.com/94688508/163683425-152dcdc0-88ba-482e-86cc-a79f16d26059.png">
+
+# 開発環境
+* Ruby 2.6.5
+* Ruby on Rails 6.0.0
+* MySQL 4.4
+* Heroku
+* simple_calendar
+* i18n_generators
+* devise
+* gretel
+* rspec-rails
+* pry-rails
+* factory_bot_rails
+* faker
+* rails-i18n
