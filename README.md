@@ -31,6 +31,12 @@ https://schedule-calendar-0630.herokuapp.com/
 # 洗い出した要件
 https://docs.google.com/spreadsheets/d/14h1gLXpCPO-xmKwL0UVXvfZG6t1lBy-Vk1XmyuFk2cA/edit?usp=sharing
 
+# 実装した機能についての画像やGIFおよびその説明
+
+# 実装予定の機能
+Bootstrapを使いviewを整える（実装中）  
+Google Maps APIを使用し予定詳細へ地図を表示させる機能を実装予定
+
 # データベース設計
 <img width="757" alt="スクリーンショット 2022-04-17 1 33 15" src="https://user-images.githubusercontent.com/94688508/163683505-179436f5-0f27-4a8a-b26b-a3a8c147d680.png">
 
@@ -93,6 +99,8 @@ https://docs.google.com/spreadsheets/d/14h1gLXpCPO-xmKwL0UVXvfZG6t1lBy-Vk1XmyuFk
 * Ruby on Rails 6.0.0
 * MySQL 4.4
 * Heroku
+* Github
+* Visual Studio Code
 * simple_calendar
 * i18n_generators
 * devise
@@ -101,4 +109,24 @@ https://docs.google.com/spreadsheets/d/14h1gLXpCPO-xmKwL0UVXvfZG6t1lBy-Vk1XmyuFk
 * pry-rails
 * factory_bot_rails
 * faker
+* YubinBango
 * rails-i18n
+* Bootstrap 5.0
+
+# ローカルでの動作方法
+以下のコマンドを順に実行  
+% git clone https://github.com/hirokichitana/schedule-calendar.git  
+% cd schedule-calendar  
+% bundle install  
+% yarn install
+
+# 工夫したポイント
+## 使いやすさにこだわったアプリケーション
+Schedule Calendarは使用する全ユーザーにとって「使いやすいアプリケーション」である事を大切にして開発いたしました。
+### シンプルな画面デザイン
+Schedule Calendarは20代〜50代の男女が使用する事を想定しております。  
+よって画面デザインは、どんな人でも使いやすいようシンプルさにこだわりました。
+### 住所の自動入力機能
+YubinBangoというjsライブラリを使用して住所の自動入力機能を実装いたしました。  
+これにより、ユーザーは郵便番号を入力するだけで町域までの住所が自動入力されるため、入力量を格段に減らす事ができます。
+### メール機能

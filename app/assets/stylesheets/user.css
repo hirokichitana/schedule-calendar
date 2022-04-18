@@ -39,3 +39,21 @@
   border: 1px solid #dedede;
   font-size: 14px;
 }
+
+.registration-main {
+  width: 100%;
+  min-width: 800px;
+  height: 100%;
+  background-color: white;
+  justify-content: center;
+  margin-left: 20px
+}
+
+.form-wrap {
+  width: 100%;
+  background-color: white;
+  padding-bottom: 70px;
+  justify-content: center;
+  margin-left: 15px
+}
+
