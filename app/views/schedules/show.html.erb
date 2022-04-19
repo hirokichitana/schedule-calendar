@@ -4,10 +4,6 @@
 
 <div class="show">
 
-
-
-
-
   <table class="detail-table">
     <tbody>
       <tr>
@@ -40,11 +36,6 @@
       </tr>
     </tbody>
   </table>
-
-
-
-
-
 
   <% if user_signed_in? && current_user.id == @schedule.user_id %>
     <%= link_to '編集', edit_schedule_path(@schedule.id) %>

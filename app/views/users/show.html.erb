@@ -3,9 +3,8 @@
 <div class="contents row">
 
   <% @user.each do |user| %>
-
     <h5><%= user.name %>さんのマイページ</h5>
-
+    
     <% unless user_signed_in? && current_user.id == user.id %>
       <div class="mail-link">
         <%= mail_to user.email, "#{user.name}さんへメールを送る" %>
