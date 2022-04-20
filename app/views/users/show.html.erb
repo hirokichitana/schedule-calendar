@@ -39,11 +39,6 @@
         </tr>
       </tbody>
     </table>
-
-    <% if user_signed_in? && current_user.id == user.id %>
-      <%= link_to "ユーザー情報変更", edit_user_registration_path, class: "post" %>
-    <% end %>
-
   <% end %>
 
   <%= month_calendar events: @schedules do |date, schedules| %>
