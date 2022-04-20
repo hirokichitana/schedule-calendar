@@ -8,7 +8,7 @@ Schedule Calendar
 https://schedule-calendar-0630.herokuapp.com/
 
 # テスト用アカウント
-* Basic認証パスワード：tanaka
+* Basic認証ID：tanaka
 * Basic認証パスワード：6301015
 * メールアドレス：test@test
 * パスワード：test123
