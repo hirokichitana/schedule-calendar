@@ -2,7 +2,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<div class="show">
+<div class="container">
 
   <table class="detail-table">
     <tbody>
@@ -44,7 +44,7 @@
   <div class="container">
     <% if user_signed_in? %>
       <%= form_with(model: [@schedule, @comment], local: true) do |form| %>
-        <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
+        <%= form.text_area :text, placeholder: "コメントする", rows: "2", class: "form"  %>
         <%= form.submit "コメント投稿" %>
       <% end %>
     <% else %>
@@ -65,5 +65,3 @@
   </div>
 
 </div>
-
-<%= link_to "戻る", :back %>

@@ -1,10 +1,8 @@
 <% breadcrumb :users_show %>
 
-<div class="contents row">
-
+<div class="container">
   <% @user.each do |user| %>
     <h5><%= user.name %>さんのマイページ</h5>
-    
     <% unless user_signed_in? && current_user.id == user.id %>
       <div class="mail-link">
         <%= mail_to user.email, "#{user.name}さんへメールを送る" %>
@@ -41,17 +39,18 @@
     </table>
   <% end %>
 
-  <%= month_calendar events: @schedules do |date, schedules| %>
-    <%= date.day %>
+  <div class="container">
+    <%= month_calendar events: @schedules do |date, schedules| %>
+      <%= date.day %>
 
-    <% schedules.each do |schedule| %>
-      <li>
-        <%= link_to schedule.title, schedule_path(schedule.id), method: :get %>
-        <div>
-          (<%= link_to schedule.user.name, user_path(schedule.user.id), method: :get %>)
-        </div>
-      </li>
+      <% schedules.each do |schedule| %>
+        <li>
+          <%= link_to schedule.title, schedule_path(schedule.id), method: :get %>
+          <div>
+            (<%= link_to schedule.user.name, user_path(schedule.user.id), method: :get %>)
+          </div>
+        </li>
+      <% end %>
     <% end %>
-  <% end %>
-
+  </div>
 </div>

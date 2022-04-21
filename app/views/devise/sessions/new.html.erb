@@ -1,17 +1,21 @@
 <% breadcrumb :sessions_new %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="container">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">メールアドレス</label>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">パスワード</label>
-    <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
-  </div>
-  <%= f.submit "ログイン" ,class: "btn btn-primary" %>
+    <div class="mb-3">
+      <div class="content">
+        <label for="exampleInputEmail1" class="form-label">メールアドレス</label>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+      </div>
+      <div class="content">
+        <label for="exampleInputPassword1" class="form-label">パスワード</label>
+        <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+      </div>
+      <div class="col-12">
+        <%= f.submit "ログイン" ,class: "btn btn-primary" %>
+      </div>
+    </div>
 
-<% end %>
-
-<%= link_to "戻る", :back %>
+  <% end %>
+</div>

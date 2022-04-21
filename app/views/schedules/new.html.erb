@@ -1,83 +1,74 @@
 <% breadcrumb :schedules_new %>
 
-<div class='registration-main'>
+<div class="container">
   <h1>新規予定</h1>
-
   <%= form_with model: @schedule, local: true do |form| %>
-    <div class='form-wrap'>
-      <% if @schedule.errors.any? %>
-        <div id="error_explanation">
-          <h2>
-            <%= I18n.t("errors.messages.not_saved",
-                      count: @schedule.errors.count,
-                      resource: @schedule.class.model_name.human.downcase)
-            %>
-          </h2>
-          <ul>
-            <% @schedule.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %> 
+    <% if @schedule.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= I18n.t("errors.messages.not_saved",
+                    count: @schedule.errors.count,
+                    resource: @schedule.class.model_name.human.downcase)
+          %>
+        </h2>
+        <ul>
+          <% @schedule.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %> 
+    <form class="contents">
+      <div class="content">
+        <label for="inputEmail4" class="form-label">タイトル（必須）</label>
+        <%= form.text_field :title, class: "form-control form", id: "inputEmail4" %>
+      </div>
 
-      <form class="row g-3">
-        <div class="col-md-6">
-          <label for="inputEmail4" class="form-label">タイトル（必須）</label>
-          <%= form.text_field :title, class: "form-control", id: "inputEmail4" %>
-        </div>
+      <div class="content">
+        <label for="inputEmail4" class="form-label">開始日時（必須）</label>
+        <%= form.datetime_field :start_time, class: "form-control form", id: "inputEmail4" %>
+      </div>
 
-        <div class="col-md-6">
-          <label for="inputEmail4" class="form-label">開始日時（必須）</label>
-          <%= form.datetime_field :start_time, class: "form-control", id: "inputEmail4" %>
-        </div>
-
-        <div class="col-md-6">
-          <label for="inputEmail4" class="form-label">終了日時（必須）</label>
-          <%= form.datetime_field :end_time, class: "form-control", id: "inputEmail4" %>
-        </div>
-        
-        <div class="col-md-6">
-          <label for="inputEmail4" class="form-label">詳細（必須）</label>
-          <%= form.text_field :content, class: "form-control items-text", id: "inputEmail4" %>
-        </div>
-
-        <div class="h-adr" >
-          <span class="p-country-name" style="display:none;">Japan</span>
-          <div class="zip_code col-md-6">
-            <%= form.label :郵便番号 %>
-            <%= form.text_field :zip_code, placeholder:"郵便番号を入力してください", class:"p-postal-code form-control" %>
-          </div>
-
-          <div class="prefecture, col-md-6">
-              <%= form.label :都道府県 %>
-              <%= form.text_field :prefecture, class:"p-region form-control" %>
-          </div>
-
-          <div class="city, col-md-6">
-            <%= form.label :市区町村 %>
-            <%= form.text_field :city, class:"p-locality form-control" %>
-          </div>
-
-          <div class="town, col-md-6">
-            <%= form.label :町域・番地 %>
-            <%= form.text_field :town, class:"p-street-address form-control" %>
-          </div>
-
-          <div class="building_name, col-md-6">
-                  <%= form.label :その他住所 %>
-                  <%= form.text_field :building_name, class:"p-extended-address form-control" %>
-          </div>
-        </div>
+      <div class="content">
+        <label for="inputEmail4" class="form-label">終了日時（必須）</label>
+        <%= form.datetime_field :end_time, class: "form-control form", id: "inputEmail4" %>
+      </div>
       
-        
-        <div class="col-12">
-          <%= form.submit "予定を登録する", class: "btn btn-primary" %>
+      <div class="content">
+        <label for="inputEmail4" class="form-label">詳細（必須）</label>
+        <%= form.text_area :content, class: "form-control items-text form", id: "inputEmail4" %>
+      </div>
+
+      <div class="h-adr" >
+        <span class="p-country-name" style="display:none;">Japan</span>
+        <div class="zip_code content">
+          <%= form.label :郵便番号 %>
+          <%= form.text_field :zip_code, placeholder:"郵便番号を入力してください", class:"p-postal-code form-control" %>
         </div>
-      </form>
-    </div>
+
+        <div class="prefecture content">
+            <%= form.label :都道府県 %>
+            <%= form.text_field :prefecture, class:"p-region form-control" %>
+        </div>
+
+        <div class="city content">
+          <%= form.label :市区町村 %>
+          <%= form.text_field :city, class:"p-locality form-control" %>
+        </div>
+
+        <div class="town content">
+          <%= form.label :町域・番地 %>
+          <%= form.text_field :town, class:"p-street-address form-control" %>
+        </div>
+
+        <div class="building_name content">
+                <%= form.label :その他住所 %>
+                <%= form.text_field :building_name, class:"p-extended-address form-control" %>
+        </div>
+      </div>
+      <div class="col-12">
+        <%= form.submit "予定を登録する", class: "btn btn-primary" %>
+      </div>
+    </form>
   <% end %>
-
-
-  <%= link_to "戻る", :back %>
 </div>

@@ -31,9 +31,11 @@
 
       <ul class="nav">
         <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to "トップページ", root_path, class: "nav-link" %>
-          </li>
+          <% unless current_page? (root_path) %>
+            <li class="nav-item">
+              <%= link_to "トップページ", root_path, class: "nav-link" %>
+            </li>
+          <% end %>
           <% unless current_page? (new_schedule_path) %>
             <li class="nav-item">
               <%= link_to "新規予定", new_schedule_path, class: "post", class:"nav-link" %>
@@ -52,16 +54,28 @@
               <%= link_to "ユーザー情報変更", edit_user_registration_path, class: "post nav-link" %>
             </li>
           <% end %>
+          <% unless current_page? (root_path) %>
+            <li class="nav-item">
+              <%= link_to "戻る", :back, class:"nav-link" %>
+            </li>
+          <% end %>
         <% else %>
-          <li class="nav-item">
-            <%= link_to "トップページ", root_path, class: "nav-link" %>
-          </li>
+          <% unless current_page? (root_path) %>
+            <li class="nav-item">
+              <%= link_to "トップページ", root_path, class: "nav-link" %>
+            </li>
+          <% end %>
           <li class="nav-item">
             <%= link_to "ログイン", new_user_session_path, class: "post", class:"nav-link" %>
           </li>
           <% unless current_page? (new_user_registration_path) %>
             <li class="nav-item">
               <%= link_to "新規登録", new_user_registration_path, class: "post", class: "nav-link" %>
+            </li>
+          <% end %>
+          <% unless current_page? (root_path) %>
+            <li class="nav-item">
+              <%= link_to "戻る", :back, class:"nav-link" %>
             </li>
           <% end %>
         <% end %>
