@@ -39,3 +39,8 @@
   border: 1px solid #dedede;
   font-size: 14px;
 }
+
+.user-top{
+  display: flex;
+  justify-content: space-between;
+}
