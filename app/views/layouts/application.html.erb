@@ -13,78 +13,81 @@
   </head>
 
   <body>
-  <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
-  <%= breadcrumbs separator: " &rsaquo; " %>
-    <header class="header">
-      <div class="header__bar row">
-        <nav class="navbar navbar-light bg-light">
-          <div class="container-fluid">
-            <a class="navbar-brand">
-              <h1>ScheduleCalendar</h1>
-              <% if user_signed_in? %>
-                <h5>こんにちは<%= link_to current_user.name, user_path(current_user.id), class: "user-name" %>さん</h5>
-              <% end %>
-            </a>
-          </div>
-        </nav>
-      </div>
+  <div class="main">
+    <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
+    <%= breadcrumbs separator: " &rsaquo; " %>
+      <header class="header">
+        <div class="header__bar row">
+          <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand">
+                <h1>ScheduleCalendar</h1>
+                <% if user_signed_in? %>
+                  <h5>こんにちは<%= link_to current_user.name, user_path(current_user.id), class: "user-name" %>さん</h5>
+                <% end %>
+              </a>
+            </div>
+          </nav>
+        </div>
 
-      <ul class="nav">
-        <% if user_signed_in? %>
-          <% unless current_page? (root_path) %>
+        
+        <ul class="nav">
+          <% if user_signed_in? %>
+            <% unless current_page? (root_path) %>
+              <li class="nav-item">
+                <%= link_to "トップページ", root_path, class: "btn btn-outline-dark" %>
+              </li>
+            <% end %>
+            <% unless current_page? (new_schedule_path) %>
+              <li class="nav-item">
+                <%= link_to "新規予定", new_schedule_path, class: "post", class:"btn btn-outline-dark" %>
+              </li>
+            <% end %>
+            <% unless current_page? (user_path(current_user.id)) %>
+              <li class="nav-item">
+                <%= link_to "マイページ", user_path(current_user.id), class: "btn btn-outline-dark" %>
+              </li>
+            <% end %>
             <li class="nav-item">
-              <%= link_to "トップページ", root_path, class: "nav-link" %>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-outline-dark" %>
             </li>
-          <% end %>
-          <% unless current_page? (new_schedule_path) %>
+            <% if current_page? (user_path(current_user.id)) %>
+              <li class="nav-item">
+                <%= link_to "ユーザー情報変更", edit_user_registration_path, class: "btn btn-outline-dark" %>
+              </li>
+            <% end %>
+            <% unless current_page? (root_path) %>
+              <li class="nav-item">
+                <%= link_to "戻る", :back, class: "btn btn-outline-dark" %>
+              </li>
+            <% end %>
+          <% else %>
+            <% unless current_page? (root_path) %>
+              <li class="nav-item">
+                <%= link_to "トップページ", root_path, class: "btn btn-outline-dark" %>
+              </li>
+            <% end %>
             <li class="nav-item">
-              <%= link_to "新規予定", new_schedule_path, class: "post", class:"nav-link" %>
+              <%= link_to "ログイン", new_user_session_path, class: "post", class: "btn btn-outline-dark" %>
             </li>
+            <% unless current_page? (new_user_registration_path) %>
+              <li class="nav-item">
+                <%= link_to "新規登録", new_user_registration_path, class: "post", class: "btn btn-outline-dark" %>
+              </li>
+            <% end %>
+            <% unless current_page? (root_path) %>
+              <li class="nav-item">
+                <%= link_to "戻る", :back, class: "btn btn-outline-dark" %>
+              </li>
+            <% end %>
           <% end %>
-          <% unless current_page? (user_path(current_user.id)) %>
-            <li class="nav-item">
-              <%= link_to "マイページ", user_path(current_user.id), class: "nav-link" %>
-            </li>
-          <% end %>
-          <li class="nav-item">
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" %>
-          </li>
-          <% if current_page? (user_path(current_user.id)) %>
-            <li class="nav-item">
-              <%= link_to "ユーザー情報変更", edit_user_registration_path, class: "post nav-link" %>
-            </li>
-          <% end %>
-          <% unless current_page? (root_path) %>
-            <li class="nav-item">
-              <%= link_to "戻る", :back, class:"nav-link" %>
-            </li>
-          <% end %>
-        <% else %>
-          <% unless current_page? (root_path) %>
-            <li class="nav-item">
-              <%= link_to "トップページ", root_path, class: "nav-link" %>
-            </li>
-          <% end %>
-          <li class="nav-item">
-            <%= link_to "ログイン", new_user_session_path, class: "post", class:"nav-link" %>
-          </li>
-          <% unless current_page? (new_user_registration_path) %>
-            <li class="nav-item">
-              <%= link_to "新規登録", new_user_registration_path, class: "post", class: "nav-link" %>
-            </li>
-          <% end %>
-          <% unless current_page? (root_path) %>
-            <li class="nav-item">
-              <%= link_to "戻る", :back, class:"nav-link" %>
-            </li>
-          <% end %>
-        <% end %>
-      </ul>
+        </ul>
 
-    </header>
-  <%= yield %>
-    <footer>
-      
-    </footer>
+      </header>
+    <%= yield %>
+      <footer>
+        
+      </footer>
+  </div>
   </body>
 </html>
