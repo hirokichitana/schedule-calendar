@@ -7,10 +7,16 @@
         <h5><%= user.name %>さんのマイページ</h5>
       </div>
       <div class="top-content">
-        <% unless user_signed_in? && current_user.id == user.id %>
-          <div class="mail-link">
-            <%= mail_to user.email, "#{user.name}さんへメールを送る", class: "btn btn-outline-dark" %>
-          </div>
+        <% if user_signed_in? %>
+          <% unless current_user.id == user.id %>
+            <div class="mail-link">
+              <%= mail_to user.email, "#{user.name}さんへメールを送る", class: "btn btn-outline-dark" %>
+            </div>
+          <% else %>
+            <div class="mail-link">
+              <%= link_to "ユーザー情報変更", edit_user_registration_path, class: "btn btn-outline-dark" %>
+            </div>
+          <% end %>
         <% end %>
       </div>
     </div>
