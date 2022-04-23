@@ -3,7 +3,7 @@ class SchedulesController < ApplicationController
   before_action :contributor_confirmation, only: [:edit, :destroy]
   
   def index
-    @schedules = Schedule.all
+    @schedules = Schedule.includes(:user)
   end
 
   def new
