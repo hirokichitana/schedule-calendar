@@ -4,16 +4,16 @@
   <% @user.each do |user| %>
     <div class="user-top">
       <div class="user-name">
-        <h5><%= user.name %>さんのマイページ</h5>
+        <h2><%= user.name %>さんのマイページ</h2>
       </div>
       <div class="top-content">
         <% if user_signed_in? %>
           <% unless current_user.id == user.id %>
-            <div class="mail-link">
+            <div class="top-link">
               <%= mail_to user.email, "#{user.name}さんへメールを送る", class: "btn btn-outline-dark" %>
             </div>
           <% else %>
-            <div class="mail-link">
+            <div class="top-link">
               <%= link_to "ユーザー情報変更", edit_user_registration_path, class: "btn btn-outline-dark" %>
             </div>
           <% end %>
