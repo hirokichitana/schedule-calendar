@@ -44,3 +44,11 @@
   display: flex;
   justify-content: space-between;
 }
+
+.user-name {
+  margin: 0px 0px 0px 5%;
+}
+
+.header-user-name {
+  margin-right: 10px;
+}
