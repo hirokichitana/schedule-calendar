@@ -110,6 +110,7 @@ Google Maps APIを使用し予定詳細へ地図を表示させる機能を実�
 * YubinBango
 * rails-i18n
 * Bootstrap 5.0
+* VOV.CSS
 
 # ローカルでの動作方法
 以下のコマンドを順に実行  
