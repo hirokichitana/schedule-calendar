@@ -1,7 +1,18 @@
 <% breadcrumb :schedules_edit %>
 
 <div class="container">
-  <h1>予定の編集</h1>
+  <div class="schedule-top">
+    <div class="schedule-title">
+      <h2>予定の編集</h2>
+    </div>
+    <div class="top-content">
+        <% if user_signed_in? && current_user.id == @schedule.user_id %>
+          <div class="top-link">
+            <%= link_to '予定削除',schedule_path(@schedule.id), method: :delete, data: { confirm: '本当に予定を削除しますか？' }, class: "btn btn-outline-dark" %>
+          </div>
+        <% end %>
+    </div>
+  </div>
   <%= form_with model: @schedule, local: true do |form| %>
     <% if @schedule.errors.any? %>
       <div id="error_explanation">
@@ -70,9 +81,5 @@
         <%= form.submit "変更する", class: "btn btn-primary" %>
       </div>
     </form>
-      <% if user_signed_in? && current_user.id == @schedule.user_id %>
-        <%= link_to '予定削除',schedule_path(@schedule.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
-      <% end %>
-    </div>
   <% end %>
 </div>

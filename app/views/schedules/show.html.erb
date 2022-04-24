@@ -1,68 +1,77 @@
 <% breadcrumb :schedules_show %>
 
-<p id="notice"><%= notice %></p>
-<div class="main">
-  <div class="container">
-    <% if user_signed_in? && current_user.id == @schedule.user_id %>
-      <div class="nav-item">
-        <%= link_to '予定の編集', edit_schedule_path(@schedule.id), method: :get, class: "btn btn-outline-primary" %>
-      </div>
-    <% end %>
-
-    <table class="detail-table">
-      <tbody>
-        <tr>
-          <th class="detail-item">タイトル</th>
-          <td class="detail-value"><%= @schedule.title %></td>
-        </tr>
-        <tr>
-          <th class="detail-item">投稿者</th>
-          <td class="detail-value"><%= @schedule.user.name %></td>
-        </tr>
-        <tr>
-          <th class="detail-item">詳細</th>
-          <td class="detail-value"><%= @schedule.content %></td>
-        </tr>
-        <tr>
-          <th class="detail-item">開始時間</th>
-          <td class="detail-value"><%= l @schedule.start_time %></td>
-        </tr>
-        <tr>
-          <th class="detail-item">終了時間</th>
-          <td class="detail-value"><%= l @schedule.end_time %></td>
-        </tr>
-        <tr>
-          <th class="detail-item">住所</th>
-          <td class="detail-value"><%= @schedule.zip_code %>
-            <p>
-              <%= @schedule.prefecture %><%= @schedule.city %><%= @schedule.town %><%= @schedule.building_name %>
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="container">
-      <% if user_signed_in? %>
-        <%= form_with(model: [@schedule, @comment], local: true) do |form| %>
-          <%= form.text_area :text, placeholder: "コメントする", rows: "2", class: "form"  %>
-          <%= form.submit "コメント投稿", class: "btn btn-outline-dark" %>
-        <% end %>
-      <% else %>
-        <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
-      <% end %>
-      <div class="comments">
-        <h4>＜コメント一覧＞</h4>
-        <% @comments.each do |comment| %>
-          <p>
-            <strong><%= link_to comment.user.name, "/users/#{comment.user_id}" %>：</strong>
-            <%= comment.text %>
-            <% if user_signed_in? && current_user.id == comment.user_id%>
-              <%=link_to "削除", schedule_comment_path(comment.schedule.id, comment.id), method: :delete %>
-            <% end %>
-          </p>
-        <% end %>
-      </div>
+<div class="container">
+  <div class="schedule-top">
+    <div class="schedule-title">
+      <h2><%= @schedule.title %></h2>
     </div>
-
+    <div class="top-content">
+        <% if user_signed_in? && current_user.id == @schedule.user_id %>
+          <div class="top-link">
+            <%= link_to '予定の編集', edit_schedule_path(@schedule.id), method: :get, class: "btn btn-outline-dark" %>
+          </div>
+        <% end %>
+    </div>
   </div>
+
+
+
+
+
+  <table class="detail-table">
+    <tbody>
+      <tr>
+        <th class="detail-item">タイトル</th>
+        <td class="detail-value"><%= @schedule.title %></td>
+      </tr>
+      <tr>
+        <th class="detail-item">投稿者</th>
+        <td class="detail-value"><%= @schedule.user.name %></td>
+      </tr>
+      <tr>
+        <th class="detail-item">詳細</th>
+        <td class="detail-value"><%= @schedule.content %></td>
+      </tr>
+      <tr>
+        <th class="detail-item">開始時間</th>
+        <td class="detail-value"><%= l @schedule.start_time %></td>
+      </tr>
+      <tr>
+        <th class="detail-item">終了時間</th>
+        <td class="detail-value"><%= l @schedule.end_time %></td>
+      </tr>
+      <tr>
+        <th class="detail-item">住所</th>
+        <td class="detail-value"><%= @schedule.zip_code %>
+          <p>
+            <%= @schedule.prefecture %><%= @schedule.city %><%= @schedule.town %><%= @schedule.building_name %>
+          </p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="container">
+    <% if user_signed_in? %>
+      <%= form_with(model: [@schedule, @comment], local: true) do |form| %>
+        <%= form.text_area :text, placeholder: "コメントする", rows: "2", class: "form"  %>
+        <%= form.submit "コメント投稿", class: "btn btn-outline-dark" %>
+      <% end %>
+    <% else %>
+      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+    <% end %>
+    <div class="comments">
+      <h4>＜コメント一覧＞</h4>
+      <% @comments.each do |comment| %>
+        <p>
+          <strong><%= link_to comment.user.name, "/users/#{comment.user_id}" %>：</strong>
+          <%= comment.text %>
+          <% if user_signed_in? && current_user.id == comment.user_id%>
+            <%=link_to "削除", schedule_comment_path(comment.schedule.id, comment.id), method: :delete %>
+          <% end %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+
 </div>
+

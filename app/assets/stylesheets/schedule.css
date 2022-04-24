@@ -1,3 +1,20 @@
+/* リセットCSS */
+body {
+  font-size: 14px;
+  color: #333;
+  margin: 0 auto;
+}
+h1,h2,h3,h4,h5,h6,p {
+  padding: 10px 0;
+  margin: 0;
+}
+
+ul,li {
+  padding: 0;
+  margin: 0;
+}
+
+
 .comments {
   padding: 5px;
   margin-top: 15px;
@@ -10,19 +27,18 @@ form input,
   padding: 10px;
   border: 1px solid #D8D8D8;
   border-radius: 5px;
-
 }
 
 form input[type="submit"] {
-  background-color: #57C3E9;
+  background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
   border-radius: 20px;
-  color: #fff;
+  color: black;
   border: 0;
   font-size: 18px;
 }
 
 form input[type="submit"]:hover {
-  background-color: #84d3ef;
+  background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
 }
 
 .content{
@@ -51,24 +67,42 @@ form input[type="submit"]:hover {
   margin-bottom: 20px;
 }
 
-.btn-outline-secondary {
-  margin: 10px 0px 10px 10px;
-
-}
-
 .nav-item {
-  margin: 20px 0px 0px 15px;
-
+  margin: 25px 0px 0px 20px;
 }
 
 .user-name {
   margin-left: 30px;
 }
 
-.mail-link {
+.schedule-top{
+  display: flex;
+  justify-content: space-between;
+}
+
+.top-link {
   margin-right: 30px;
 }
 
-.btn-primary {
-  background-image: linear-gradient(to right, #0acffe 0%, #495aff 100%);
+.schedule-title {
+  margin: 0px 0px 0px 5%;
+}
+
+.footer {
+  background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+  padding: 10px 0;
+  height: 50px;
+}
+.copyright {
+  text-align: center;
+  color: black;
+  font-size: 10px;
+}
+
+.btn-outline-dark {
+  background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+}
+
+.btn-outline-dark:hover {
+  background-image: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
 }
