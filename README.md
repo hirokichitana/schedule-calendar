@@ -61,13 +61,18 @@ Google Maps APIを使用し予定詳細へ地図を表示させる機能を実�
 
 ## schedules テーブル
 
-| Column             | Type     | Options                          |
-| ------------------ | -------- | -------------------------------- |
-| title              | string   | null: false                      |
-| content            | text     | null: false                      |
-| start_time         | datetime | null: false                      |
-| end_time           | datetime | null: false                      |
-| user               | references | null: false, foreign_key: true |
+| Column             | Type       | Options                          |
+| ------------------ | ---------- | -------------------------------- |
+| title              | string     | null: false                      |
+| content            | text       | null: false                      |
+| start_time         | datetime   | null: false                      |
+| end_time           | datetime   | null: false                      |
+| zip_code           | text       |                                  |
+| prefecture         | text       |                                  |
+| city               | text       |                                  |
+| town               | text       |                                  |
+| building_name      | text       |                                  |
+| user               | references | null: false, foreign_key: true   |
 
 ### Association
 
@@ -121,13 +126,16 @@ Google Maps APIを使用し予定詳細へ地図を表示させる機能を実�
 
 # 工夫したポイント
 ## 使いやすさにこだわったアプリケーション
-Schedule Calendarは使用する全ユーザーにとって「使いやすいアプリケーション」である事を大切にして開発いたしました。
+Schedule Calendarは使用する全ユーザーにとって「優しいアプリケーション」である事をテーマにして開発いたしました。  
+「優しい」とは、シンプルで見やすく使いやすいアプリである事を大切にしております。
 ### シンプルな画面デザイン
 Schedule Calendarは20代〜50代の男女が使用する事を想定しております。  
-よって画面デザインは、どんな人でも使いやすいようシンプルさにこだわりました。
+よって画面デザインは、どんな人でも使いやすいようシンプルである事にこだわりました。  
+また、ページ遷移ボタンを基本的に画面上部へ設置する事で、ユーザーがページ移動の際に迷わないよう意識いたしました。
 ### 住所の自動入力機能
 YubinBangoというjsライブラリを使用して住所の自動入力機能を実装いたしました。  
-これにより、ユーザーは郵便番号を入力するだけで町域までの住所が自動入力されるため、入力量を格段に減らす事ができます。
+これにより、ユーザーは郵便番号を入力するだけで町域までの住所が自動入力されます。  
+よってユーザーの入力文字数を減らす事ができ、さらに誤字脱字も防ぐ事ができます。
 ### メール機能
 自分以外のユーザー詳細ページにある「○○さんへメールを送る」ボタンをクリックする事で、利用者側でメールクライアントが起動し、設定されている宛先の情報が自動的に設定されます(送信はされません)。
 これにより、ユーザーは件名、内容を入力するだけで簡単にメールを送信する事ができます。
