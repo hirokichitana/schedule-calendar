@@ -15,7 +15,7 @@ RSpec.describe User, type: :model do
       it 'nicknameが空では登録できない' do
         @user.name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("名前を入力してください")
+        expect(@user.errors.full_messages).to include('名前を入力してください')
       end
       it 'telephone_numberが空だと保存できないこと' do
         @user.telephone_number = ''
@@ -45,7 +45,7 @@ RSpec.describe User, type: :model do
       it 'emailが空では登録できない' do
         @user.email = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Eメールを入力してください")
+        expect(@user.errors.full_messages).to include('Eメールを入力してください')
       end
       it '重複したemailが存在する場合は登録できない' do
         @user.save
