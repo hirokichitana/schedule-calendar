@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :schedule do
-
     Faker::Config.locale = :ja
 
     title             { Faker::Lorem.word }
