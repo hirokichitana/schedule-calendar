@@ -112,7 +112,7 @@ Google Maps APIを使用し予定詳細へ地図を表示させる機能を実�
 * pry-rails
 * factory_bot_rails
 * faker
-* YubinBango
+* YubinBango.js
 * rails-i18n
 * Bootstrap 5.0
 * VOV.CSS
