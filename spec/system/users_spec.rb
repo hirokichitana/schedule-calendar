@@ -40,4 +40,37 @@ RSpec.describe "Users", type: :system do
       expect(page).to have_no_content('ログイン')
     end
   end
+  context 'ユーザー新規登録ができないとき' do
+    it '誤った情報ではユーザー新規登録ができずに新規登録ページへ戻ってくる' do
+      # トップページに移動する
+      visit root_path
+      # トップページにサインアップページへ遷移するボタンがあることを確認する
+      expect(page).to have_content('新規登録')
+      # 新規登録ページへ移動する
+      visit new_user_registration_path
+      # ユーザー情報を入力する
+      fill_in '名前（必須）', with: ''
+      fill_in '電話番号（必須）', with: ''
+      fill_in 'メールアドレス（必須）', with: ''
+      fill_in 'パスワード（必須）', with: ''
+      fill_in 'パスワード確認（必須）', with: ''
+      select '--',from: 'user[birth_date(1i)]'
+      select '--',from: 'user[birth_date(2i)]'
+      select '--',from: 'user[birth_date(3i)]'
+      # サインアップボタンを押してもユーザーモデルのカウントは上がらないことを確認する
+      expect{
+        find('input[name="commit"]').click
+      }.to change { User.count }.by(0)
+      # 新規登録ページへ戻されることを確認する
+      expect(current_path).to eq user_registration_path
+      # エラーメッセージが表示されていることを確認する
+      expect(page).to have_content('Eメールを入力してください')
+      expect(page).to have_content('パスワードを入力してください')
+      expect(page).to have_content('パスワードは不正な値です')
+      expect(page).to have_content('名前を入力してください')
+      expect(page).to have_content('生年月日を入力してください')
+      expect(page).to have_content('電話番号を入力してください')
+      expect(page).to have_content('電話番号は不正な値です')
+    end
+  end
 end
