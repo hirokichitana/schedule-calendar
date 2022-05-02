@@ -5,12 +5,12 @@
 
     <div class="mb-3">
       <div class="content">
-        <label for="exampleInputEmail1" class="form-label">メールアドレス</label>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+        <label for="email" class="form-label">メールアドレス</label>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", id: "email" %>
       </div>
       <div class="content">
-        <label for="exampleInputPassword1" class="form-label">パスワード</label>
-        <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+        <label for="password" class="form-label">パスワード</label>
+        <%= f.password_field :password, autocomplete: "current-password", class: "form-control", id: "password" %>
       </div>
       <div class="col-12">
         <%= f.submit "ログイン" ,class: "btn btn-outline-dark" %>
