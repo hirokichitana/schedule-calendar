@@ -2,7 +2,6 @@
 
 <div class="container">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
     <div class="mb-3">
       <div class="content">
         <label for="email" class="form-label">メールアドレス</label>
@@ -16,6 +15,5 @@
         <%= f.submit "ログイン" ,class: "btn btn-outline-dark" %>
       </div>
     </div>
-
   <% end %>
 </div>
