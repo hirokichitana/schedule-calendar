@@ -20,23 +20,23 @@
     <% end %> 
     <form class="contents">
       <div class="content">
-        <label for="inputEmail4" class="form-label">タイトル（必須）</label>
-        <%= form.text_field :title, class: "form-control form", id: "inputEmail4" %>
+        <label for="schedule_title" class="form-label">タイトル（必須）</label>
+        <%= form.text_field :title, class: "form-control form", id: "schedule_title" %>
       </div>
 
       <div class="content">
-        <label for="inputEmail4" class="form-label">開始日時（必須）</label>
-        <%= form.datetime_field :start_time, class: "form-control form", id: "inputEmail4" %>
+        <label for="schedule_start_time" class="form-label">開始日時（必須）</label>
+        <%= form.datetime_field :start_time, class: "form-control form", id: "schedule_start_time" %>
       </div>
 
       <div class="content">
-        <label for="inputEmail4" class="form-label">終了日時（必須）</label>
-        <%= form.datetime_field :end_time, class: "form-control form", id: "inputEmail4" %>
+        <label for="schedule_end_time" class="form-label">終了日時（必須）</label>
+        <%= form.datetime_field :end_time, class: "form-control form", id: "schedule_end_time" %>
       </div>
       
       <div class="content">
-        <label for="inputEmail4" class="form-label">詳細（必須）</label>
-        <%= form.text_area :content, class: "form-control items-text form", id: "inputEmail4" %>
+        <label for="schedule_content" class="form-label">詳細（必須）</label>
+        <%= form.text_area :content, class: "form-control items-text form", id: "schedule_content" %>
       </div>
 
       <div class="h-adr" >
