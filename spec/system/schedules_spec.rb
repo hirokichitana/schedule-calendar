@@ -44,6 +44,14 @@ RSpec.describe "Schedules", type: :system do
       expect(page).to have_content(@schedule.title)
     end
   end
+  context 'スケジュールを投稿がきないとき'do
+    it 'ログインしていないと新規投稿ページに遷移できない' do
+      # トップページに遷移する
+      visit root_path
+      # 新規投稿ページへのボタンがないことを確認する
+      expect(page).to have_no_content('新規予定')
+    end
+  end
   context 'スケジュールを投稿できないとき'do
     it '正しく情報を入力しなければ予定を投稿できない' do
       # トップページに移動する
