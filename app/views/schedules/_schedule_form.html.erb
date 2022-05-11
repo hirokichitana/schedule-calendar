@@ -1,0 +1,47 @@
+<div class="content">
+  <label for="schedule_title" class="form-label">タイトル（必須）</label>
+  <%= form.text_field :title, class: "form-control form", id: "schedule_title" %>
+</div>
+
+<div class="content">
+  <label for="schedule_start_time" class="form-label">開始日時（必須）</label>
+  <%= form.datetime_field :start_time, class: "form-control form", id: "schedule_start_time" %>
+</div>
+
+<div class="content">
+  <label for="schedule_end_time" class="form-label">終了日時（必須）</label>
+  <%= form.datetime_field :end_time, class: "form-control form", id: "schedule_end_time" %>
+</div>
+
+<div class="content">
+  <label for="schedule_content" class="form-label">詳細（必須）</label>
+  <%= form.text_area :content, class: "form-control items-text form", id: "schedule_content" %>
+</div>
+
+<div class="h-adr" >
+  <span class="p-country-name" style="display:none;">Japan</span>
+  <div class="zip_code content">
+    <%= form.label :郵便番号 %>
+    <%= form.text_field :zip_code, placeholder:"郵便番号を入力してください", class:"p-postal-code form-control" %>
+  </div>
+
+  <div class="prefecture content">
+      <%= form.label :都道府県 %>
+      <%= form.text_field :prefecture, class:"p-region form-control" %>
+  </div>
+
+  <div class="city content">
+    <%= form.label :市区町村 %>
+    <%= form.text_field :city, class:"p-locality form-control" %>
+  </div>
+
+  <div class="town content">
+    <%= form.label :町域・番地 %>
+    <%= form.text_field :town, class:"p-street-address form-control" %>
+  </div>
+
+  <div class="building_name content">
+          <%= form.label :その他住所 %>
+          <%= form.text_field :building_name, class:"p-extended-address form-control" %>
+  </div>
+</div>
