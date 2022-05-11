@@ -125,4 +125,18 @@ RSpec.describe "Schedules", type: :system do
       expect(page).to have_content(@schedule1.title)
     end
   end
+  context 'スケジュール編集ができないとき' do
+    it 'ログインしたユーザーは自分以外が投稿したスケジュールの編集画面には遷移できない' do
+      # ツイート1を投稿したユーザーでログインする
+      visit new_user_session_path
+      fill_in 'メールアドレス', with: @schedule1.user.email
+      fill_in 'パスワード', with: @schedule1.user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq(root_path)
+      # スケジュール2詳細ページへ遷移する
+      visit schedule_path(@schedule2.id)
+      # ツイート2に「予定の編集」へのリンクがないことを確認する
+      expect(page).to have_no_content('予定の編集')
+    end
+  end
 end
