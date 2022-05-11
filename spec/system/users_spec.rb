@@ -1,16 +1,16 @@
 require 'rails_helper'
 
 def basic_pass(path)
-  username = ENV["BASIC_AUTH_USER"]
-  password = ENV["BASIC_AUTH_PASSWORD"]
+  username = ENV['BASIC_AUTH_USER']
+  password = ENV['BASIC_AUTH_PASSWORD']
   visit "http://#{username}:#{password}@#{Capybara.current_session.server.host}:#{Capybara.current_session.server.port}#{path}"
 end
 
-RSpec.describe "Users", type: :system do
+RSpec.describe 'Users', type: :system do
   before do
     @user = FactoryBot.build(:user)
   end
-  context 'ユーザー新規登録ができるとき' do 
+  context 'ユーザー新規登録ができるとき' do
     it '正しい情報を入力すればユーザー新規登録ができてトップページに移動する' do
       # トップページに移動する
       basic_pass root_path
@@ -25,13 +25,13 @@ RSpec.describe "Users", type: :system do
       fill_in 'メールアドレス（必須）', with: @user.email
       fill_in 'パスワード（必須）', with: @user.password
       fill_in 'パスワード確認（必須）', with: @user.password_confirmation
-      select '1991',from: 'user[birth_date(1i)]'
-      select '12',from: 'user[birth_date(2i)]'
-      select '12',from: 'user[birth_date(3i)]'
+      select '1991', from: 'user[birth_date(1i)]'
+      select '12', from: 'user[birth_date(2i)]'
+      select '12', from: 'user[birth_date(3i)]'
       # サインアップボタンを押すとユーザーモデルのカウントが1上がることを確認する
-      expect{
+      expect do
         find('input[name="commit"]').click
-      }.to change { User.count }.by(1)
+      end.to change { User.count }.by(1)
       # トップページへ遷移したことを確認する
       expect(current_path).to eq(root_path)
       # ログアウトボタンが表示されることを確認する
@@ -55,13 +55,13 @@ RSpec.describe "Users", type: :system do
       fill_in 'メールアドレス（必須）', with: ''
       fill_in 'パスワード（必須）', with: ''
       fill_in 'パスワード確認（必須）', with: ''
-      select '--',from: 'user[birth_date(1i)]'
-      select '--',from: 'user[birth_date(2i)]'
-      select '--',from: 'user[birth_date(3i)]'
+      select '--', from: 'user[birth_date(1i)]'
+      select '--', from: 'user[birth_date(2i)]'
+      select '--', from: 'user[birth_date(3i)]'
       # サインアップボタンを押してもユーザーモデルのカウントは上がらないことを確認する
-      expect{
+      expect do
         find('input[name="commit"]').click
-      }.to change { User.count }.by(0)
+      end.to change { User.count }.by(0)
       # 新規登録ページへ戻されることを確認する
       expect(current_path).to eq user_registration_path
       # エラーメッセージが表示されていることを確認する
