@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :schedule do
     Faker::Config.locale = :ja
-    
+
     title             { Faker::Lorem.word }
     content           { Faker::Lorem.sentence }
     start_time        { Faker::Time.between(from: DateTime.now - 1, to: DateTime.now) }
