@@ -1,19 +1,19 @@
 require 'rails_helper'
 
 def basic_pass(path)
-  username = ENV["BASIC_AUTH_USER"]
-  password = ENV["BASIC_AUTH_PASSWORD"]
+  username = ENV['BASIC_AUTH_USER']
+  password = ENV['BASIC_AUTH_PASSWORD']
   visit "http://#{username}:#{password}@#{Capybara.current_session.server.host}:#{Capybara.current_session.server.port}#{path}"
 end
 
-RSpec.describe "v", type: :system do
+RSpec.describe 'v', type: :system do
   before do
     @user = FactoryBot.create(:user)
     @schedule = FactoryBot.create(:schedule)
     @comment = FactoryBot.create(:comment)
   end
 
-  context 'コメントを投稿できるとき'do
+  context 'コメントを投稿できるとき' do
     it 'ログインし、スケジュールが存在し、コメントを入力したユーザーは投稿できる' do
       # トップページに移動する
       basic_pass root_path
@@ -36,9 +36,9 @@ RSpec.describe "v", type: :system do
       fill_in '終了日時（必須）', with: @schedule.end_time
       fill_in '詳細（必須）', with: @schedule.content
       # 送信するとScheduleモデルのカウントが1上がることを確認する
-      expect{
+      expect  do
         find('input[name="commit"]').click
-      }.to change { Schedule.count }.by(1)
+      end.to change { Schedule.count }.by(1)
       # トップページに遷移する
       visit root_path
       # トップページには先ほど投稿した内容のスケジュールが存在することを確認する
@@ -48,14 +48,14 @@ RSpec.describe "v", type: :system do
       # フォームに情報を入力する
       fill_in 'comment_text', with: @comment.text
       # 送信するとScheduleモデルのカウントが1上がることを確認する
-      expect{
+      expect  do
         find('input[name="commit"]').click
-      }.to change { Comment.count }.by(1)
+      end.to change { Comment.count }.by(1)
       # 先ほど投稿した内容のコメントが存在することを確認する
       expect(page).to have_content(@comment.text)
     end
   end
-  context 'コメントを投稿できないとき'do
+  context 'コメントを投稿できないとき' do
     it 'ログインし、スケジュールが存在し、コメントが空欄では投稿できない' do
       # トップページに移動する
       visit root_path
@@ -77,9 +77,9 @@ RSpec.describe "v", type: :system do
       fill_in '終了日時（必須）', with: @schedule.end_time
       fill_in '詳細（必須）', with: @schedule.content
       # 送信するとScheduleモデルのカウントが1上がることを確認する
-      expect{
+      expect  do
         find('input[name="commit"]').click
-      }.to change { Schedule.count }.by(1)
+      end.to change { Schedule.count }.by(1)
       # トップページに遷移する
       visit root_path
       # トップページには先ほど投稿した内容のスケジュールが存在することを確認する
@@ -89,9 +89,9 @@ RSpec.describe "v", type: :system do
       # フォームに情報を入力する
       fill_in 'comment_text', with: ''
       # 送信するとScheduleモデルのカウントが1上がることを確認する
-      expect{
+      expect  do
         find('input[name="commit"]').click
-      }.to change { Comment.count }.by(0)
+      end.to change { Comment.count }.by(0)
     end
   end
 end
