@@ -138,5 +138,13 @@ RSpec.describe 'Schedules', type: :system do
       # ツイート2に「予定の編集」へのリンクがないことを確認する
       expect(page).to have_no_content('予定の編集')
     end
+    it 'ログインしていないとスケジュールの編集画面には遷移できない' do
+      # トップページにいる
+      visit root_path
+      # スケジュール1詳細ページへ遷移する
+      visit schedule_path(@schedule1.id)
+      # ツイート1に「予定の編集」へのリンクがないことを確認する
+      expect(page).to have_no_content('予定の編集')
+    end
   end
 end
