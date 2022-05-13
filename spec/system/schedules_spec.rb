@@ -97,7 +97,7 @@ RSpec.describe 'Schedules', type: :system do
     @schedule2 = FactoryBot.create(:schedule)
   end
   context 'スケジュール編集ができるとき' do
-    it 'ログインしたユーザーは自分が投稿したツイートの編集ができる' do
+    it 'ログインしたユーザーは自分が投稿したスケジュールの編集ができる' do
       # スケジュール1を投稿したユーザーでログインする
       visit new_user_session_path
       fill_in 'メールアドレス', with: @schedule1.user.email
