@@ -10,8 +10,6 @@ RSpec.describe 'Schedules', type: :system do
   before do
     @user = FactoryBot.create(:user)
     @schedule = FactoryBot.create(:schedule)
-    @schedule1 = FactoryBot.create(:schedule)
-    @schedule2 = FactoryBot.create(:schedule)
   end
 
   context 'スケジュールを投稿できるとき' do
