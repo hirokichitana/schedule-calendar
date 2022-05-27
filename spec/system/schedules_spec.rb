@@ -19,12 +19,8 @@ RSpec.describe 'Schedules', type: :system do
       visit root_path
       # トップページにログインページへ遷移するボタンがあることを確認する
       expect(page).to have_content('ログイン')
-      # ログインページへ遷移する
-      visit new_user_session_path
       # ログインする
-      fill_in 'メールアドレス', with: @user.email
-      fill_in 'パスワード', with: @user.password
-      find('input[name="commit"]').click
+      sign_in(@user)
       # 新規投稿ページへのボタンがあることを確認する
       expect(page).to have_content('新規予定')
       # 投稿ページに移動する
@@ -59,12 +55,8 @@ RSpec.describe 'Schedules', type: :system do
       visit root_path
       # トップページにログインページへ遷移するボタンがあることを確認する
       expect(page).to have_content('ログイン')
-      # ログインページへ遷移する
-      visit new_user_session_path
       # ログインする
-      fill_in 'メールアドレス', with: @user.email
-      fill_in 'パスワード', with: @user.password
-      find('input[name="commit"]').click
+      sign_in(@user)
       # 新規投稿ページへのボタンがあることを確認する
       expect(page).to have_content('新規予定')
       # 新規投稿ページに移動する
@@ -97,11 +89,7 @@ RSpec.describe 'Schedules', type: :system do
   context 'スケジュール編集ができるとき' do
     it 'ログインしたユーザーは自分が投稿したスケジュールの編集ができる' do
       # スケジュール1を投稿したユーザーでログインする
-      visit new_user_session_path
-      fill_in 'メールアドレス', with: @schedule1.user.email
-      fill_in 'パスワード', with: @schedule1.user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq(root_path)
+      sign_in(@schedule1.user)
       # スケジュール1詳細ページへ遷移する
       visit schedule_path(@schedule1.id)
       # スケジュール1に「予定の編集」へのリンクがあることを確認する
@@ -126,11 +114,7 @@ RSpec.describe 'Schedules', type: :system do
   context 'スケジュール編集ができないとき' do
     it 'ログインしたユーザーは自分以外が投稿したスケジュールの編集画面には遷移できない' do
       # ツイート1を投稿したユーザーでログインする
-      visit new_user_session_path
-      fill_in 'メールアドレス', with: @schedule1.user.email
-      fill_in 'パスワード', with: @schedule1.user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq(root_path)
+      sign_in(@schedule1.user)
       # スケジュール2詳細ページへ遷移する
       visit schedule_path(@schedule2.id)
       # ツイート2に「予定の編集」へのリンクがないことを確認する
