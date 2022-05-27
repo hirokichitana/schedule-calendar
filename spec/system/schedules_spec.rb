@@ -19,6 +19,8 @@ RSpec.describe 'Schedules', type: :system do
       visit root_path
       # トップページにログインページへ遷移するボタンがあることを確認する
       expect(page).to have_content('ログイン')
+      # ログインページへ遷移する
+      visit new_user_session_path
       # ログインする
       sign_in(@user)
       # 新規投稿ページへのボタンがあることを確認する
@@ -55,6 +57,8 @@ RSpec.describe 'Schedules', type: :system do
       visit root_path
       # トップページにログインページへ遷移するボタンがあることを確認する
       expect(page).to have_content('ログイン')
+      # ログインページへ遷移する
+      visit new_user_session_path
       # ログインする
       sign_in(@user)
       # 新規投稿ページへのボタンがあることを確認する
@@ -88,6 +92,8 @@ RSpec.describe 'Schedules', type: :system do
   end
   context 'スケジュール編集ができるとき' do
     it 'ログインしたユーザーは自分が投稿したスケジュールの編集ができる' do
+      # ログインページへ遷移する
+      visit new_user_session_path
       # スケジュール1を投稿したユーザーでログインする
       sign_in(@schedule1.user)
       # スケジュール1詳細ページへ遷移する
@@ -113,6 +119,8 @@ RSpec.describe 'Schedules', type: :system do
   end
   context 'スケジュール編集ができないとき' do
     it 'ログインしたユーザーは自分以外が投稿したスケジュールの編集画面には遷移できない' do
+      # ログインページへ遷移する
+      visit new_user_session_path
       # ツイート1を投稿したユーザーでログインする
       sign_in(@schedule1.user)
       # スケジュール2詳細ページへ遷移する

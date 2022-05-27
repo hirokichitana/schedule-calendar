@@ -23,9 +23,7 @@ RSpec.describe 'v', type: :system do
       # ログインページへ遷移する
       visit new_user_session_path
       # ログインする
-      fill_in 'メールアドレス', with: @user.email
-      fill_in 'パスワード', with: @user.password
-      find('input[name="commit"]').click
+      sign_in(@user)
       # 新規投稿ページへのボタンがあることを確認する
       expect(page).to have_content('新規予定')
       # 投稿ページに移動する
@@ -64,9 +62,7 @@ RSpec.describe 'v', type: :system do
       # ログインページへ遷移する
       visit new_user_session_path
       # ログインする
-      fill_in 'メールアドレス', with: @user.email
-      fill_in 'パスワード', with: @user.password
-      find('input[name="commit"]').click
+      sign_in(@user)
       # 新規投稿ページへのボタンがあることを確認する
       expect(page).to have_content('新規予定')
       # 投稿ページに移動する
