@@ -1,7 +1,5 @@
 module SignInSupport
   def sign_in(user)
-
-    # ログインする
     fill_in 'メールアドレス', with: user.email
     fill_in 'パスワード', with: user.password
     find('input[name="commit"]').click
