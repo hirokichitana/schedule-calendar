@@ -23,7 +23,7 @@ RSpec.describe 'Schedules', type: :system do
       # 投稿ページに移動する
       visit new_schedule_path
       # フォームに情報を入力する
-      log_in(@schedule)
+      schedule(@schedule)
       # 送信するとScheduleモデルのカウントが1上がることを確認する
       expect  do
         find('input[name="commit"]').click
