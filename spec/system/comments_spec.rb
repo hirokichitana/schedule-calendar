@@ -1,10 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe 'v', type: :system do
+RSpec.describe 'comments', type: :system do
   before do
     @user = FactoryBot.create(:user)
     @schedule = FactoryBot.create(:schedule)
     @comment = FactoryBot.create(:comment)
+    sleep(0.1)
   end
 
   context 'コメントを投稿できるとき' do
