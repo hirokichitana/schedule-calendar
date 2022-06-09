@@ -100,14 +100,9 @@ RSpec.describe 'ログイン', type: :system do
       # トップページにログインページへ遷移するボタンがあることを確認する
       expect(page).to have_content('ログイン')
       # ログインページへ遷移する
-      visit new_user_session_path
+      visit user_session_path
       # ユーザー情報を入力する
-      fill_in 'メールアドレス', with: @user.email
-      fill_in 'パスワード', with: @user.password
-      # ログインボタンを押す
-      find('input[name="commit"]').click
-      # ログインページへ戻されることを確認する
-      expect(current_path).to eq(root_path)
+      sign_in(@user)
     end
   end
 end
