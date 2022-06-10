@@ -81,7 +81,7 @@ RSpec.describe 'ログイン', type: :system do
       # トップページにログインページへ遷移するボタンがあることを確認する
       expect(page).to have_content('ログイン')
       # ログインページへ遷移する
-      visit new_user_session_path
+      visit user_session_path
       # ログインする
       sign_in(@user)
       # トップページへ遷移することを確認する
