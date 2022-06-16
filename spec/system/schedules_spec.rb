@@ -25,9 +25,7 @@ RSpec.describe 'Schedules', type: :system do
       # フォームに情報を入力する
       schedule(@schedule)
       # 送信するとScheduleモデルのカウントが1上がることを確認する
-      expect  do
-        find('input[name="commit"]').click
-      end.to change { Schedule.count }.by(1)
+      schedule_count_up
       # トップページに遷移する
       visit root_path
       # トップページには先ほど投稿した内容のスケジュールが存在することを確認する
@@ -99,7 +97,7 @@ RSpec.describe 'Schedules', type: :system do
       fill_in '開始日時（必須）', with: @schedule1.start_time
       fill_in '終了日時（必須）', with: @schedule1.end_time
       fill_in '詳細（必須）', with: @schedule1.content
-      # 編集してもScheduleモデルのカウントは変わらないことを確認する
+      # 編集してもScheduleモデルのカウントは上がらないことを確認する
       expect  do
         find('input[name="commit"]').click
       end.to change { Schedule.count }.by(0)
