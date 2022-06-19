@@ -35,7 +35,7 @@ RSpec.describe 'comments', type: :system do
       visit schedule_path(@schedule.id)
       # フォームに情報を入力する
       fill_in 'comment_text', with: @comment.text
-      # 送信するとScheduleモデルのカウントが1上がることを確認する
+      # 送信するとCommentモデルのカウントが1上がることを確認する
       expect  do
         find('input[name="commit"]').click
       end.to change { Comment.count }.by(1)
@@ -72,7 +72,7 @@ RSpec.describe 'comments', type: :system do
       visit schedule_path(@schedule.id)
       # フォームに情報を入力する
       fill_in 'comment_text', with: ''
-      # 送信するとScheduleモデルのカウントが1上がることを確認する
+      # 送信するとCommentモデルのカウントが上がらないことを確認する
       expect  do
         find('input[name="commit"]').click
       end.to change { Comment.count }.by(0)
