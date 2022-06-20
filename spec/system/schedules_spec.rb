@@ -61,9 +61,7 @@ RSpec.describe 'Schedules', type: :system do
       fill_in '終了日時（必須）', with: ''
       fill_in '詳細（必須）', with: ''
       # 送信してもScheduleモデルのカウントが上がらないことを確認する
-      expect  do
-        find('input[name="commit"]').click
-      end.to change { Schedule.count }.by(0)
+      schedule_count_not_up
       # 新規投稿ページへ戻されることを確認する
       expect(current_path).to eq schedules_path
       # エラーメッセージが表示されていることを確認する
@@ -98,9 +96,7 @@ RSpec.describe 'Schedules', type: :system do
       fill_in '終了日時（必須）', with: @schedule1.end_time
       fill_in '詳細（必須）', with: @schedule1.content
       # 編集してもScheduleモデルのカウントは上がらないことを確認する
-      expect  do
-        find('input[name="commit"]').click
-      end.to change { Schedule.count }.by(0)
+      schedule_count_not_up
       # トップページに遷移する
       visit root_path
       # トップページには先ほど投稿した内容のスケジュールが存在することを確認する
