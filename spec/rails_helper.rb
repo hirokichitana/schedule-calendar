@@ -35,6 +35,7 @@ RSpec.configure do |config|
   config.include ScheduleSupport
   config.include BasicPassSupport
   config.include ScheduleCountUpSupport
+  config.include ScheduleCountNotUpSupport
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
