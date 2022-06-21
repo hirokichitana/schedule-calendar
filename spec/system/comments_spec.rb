@@ -73,9 +73,7 @@ RSpec.describe 'comments', type: :system do
       # フォームに情報を入力する
       fill_in 'comment_text', with: ''
       # 送信するとCommentモデルのカウントが上がらないことを確認する
-      expect  do
-        find('input[name="commit"]').click
-      end.to change { Comment.count }.by(0)
+      comment_count_not_up
     end
   end
 end
