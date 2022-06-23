@@ -23,9 +23,7 @@ RSpec.describe 'Users', type: :system do
       select '12', from: 'user[birth_date(2i)]'
       select '12', from: 'user[birth_date(3i)]'
       # サインアップボタンを押すとユーザーモデルのカウントが1上がることを確認する
-      expect do
-        find('input[name="commit"]').click
-      end.to change { User.count }.by(1)
+      user_count_up
       # トップページへ遷移したことを確認する
       expect(current_path).to eq(root_path)
       # ログアウトボタンが表示されることを確認する
