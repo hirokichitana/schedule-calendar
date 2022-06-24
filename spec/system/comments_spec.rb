@@ -16,7 +16,7 @@ RSpec.describe 'comments', type: :system do
       # トップページにログインページへ遷移するボタンがあることを確認する
       expect(page).to have_content('ログイン')
       # ログインページへ遷移する
-      visit new_user_session_path
+      visit_log_in
       # ログインする
       sign_in(@user)
       # 新規投稿ページへのボタンがあることを確認する
@@ -48,7 +48,7 @@ RSpec.describe 'comments', type: :system do
       # トップページにログインページへ遷移するボタンがあることを確認する
       expect(page).to have_content('ログイン')
       # ログインページへ遷移する
-      visit new_user_session_path
+      visit_log_in
       # ログインする
       sign_in(@user)
       # 新規投稿ページへのボタンがあることを確認する
